@@ -2,99 +2,71 @@ import React from 'react';
 import { CheckCircle } from 'lucide-react';
 
 const AboutPage = () => {
+  const logoUrl = 'https://i.imgur.com/I5SXjfk.png'; // Mpumalanga Rising Sun Logo
+
   return (
     <section className="page-section">
       <div className="page-container">
-        <div className="page-header">
-          <h1 className="page-title">About Indabentle Consulting</h1>
-          <p className="page-description">
-            We are dedicated to providing impeccable intervention to ensure fully functioning individuals and organizations
-          </p>
-        </div>
-
-        <div className="vision-mission-grid">
-          <div className="vision-box">
-            <h3 className="box-title">Our Vision</h3>
-            <p className="box-text">
-              To provide impeccable intervention to ensure fully functioning individuals and organisations, creating workplaces where people thrive and businesses succeed.
-            </p>
-          </div>
-
-          <div className="mission-box">
-            <h3 className="box-title">Our Mission</h3>
-            <p className="box-text">
-              To empower organizations through comprehensive HR solutions, wellness programs, and organizational development strategies that drive sustainable growth and employee fulfillment.
+        <div className="page-header flex items-center gap-6">
+          
+          <div>
+            <h1 className="page-title text-3xl font-bold">1360 Local Economy Hub</h1>
+            <p className="page-description text-lg">
+              Empowering Acornhoek & Bushbuckridge by unifying local skills and driving sustainable economic growth.
             </p>
           </div>
         </div>
 
-        <div className="why-choose-box">
-          <h2 className="why-choose-title">Why Choose Indabentle?</h2>
-          <div className="features-grid">
+        <div className="vision-mission-grid grid md:grid-cols-2 gap-6 mt-10">
+          <div className="vision-box p-6 bg-gradient-to-br from-yellow-50 to-orange-100 rounded-lg shadow-md">
+            <h3 className="box-title text-xl font-semibold mb-2">Our Vision</h3>
+            <p className="box-text text-gray-700">
+              To build a thriving local economy by uniting skilled individuals, fostering entrepreneurship, and creating shared prosperity.
+            </p>
+          </div>
+
+          <div className="mission-box p-6 bg-gradient-to-br from-yellow-50 to-orange-100 rounded-lg shadow-md">
+            <h3 className="box-title text-xl font-semibold mb-2">Our Mission</h3>
+            <p className="box-text text-gray-700">
+              Empower local artisans, youth, and technicians through training, mentorship, and market access while promoting collaboration.
+            </p>
+          </div>
+        </div>
+
+        <div className="why-choose-box mt-12">
+          <h2 className="why-choose-title text-2xl font-bold mb-4">Why Join 1360 Hub?</h2>
+          <div className="features-grid grid md:grid-cols-2 gap-4">
             {[
-              'Comprehensive HR and Wellness Solutions',
-              'Expert Organizational Development',
-              'Customized Training Programs',
-              'Evidence-Based Assessments',
-              'Professional Coaching Services',
-              'Results-Driven Approach'
+              'Unified Local Skills Network',
+              'Entrepreneurship & Business Support',
+              'Hands-On Training & Mentorship',
+              'Community Development Projects',
+              'Access to Market Opportunities',
+              'Sustainable & Inclusive Growth'
             ].map((item, i) => (
-              <div key={i} className="feature-item">
-                <CheckCircle className="feature-icon" size={20} />
-                <span className="feature-text">{item}</span>
+              <div key={i} className="feature-item flex items-center gap-2 bg-white p-3 rounded shadow-sm">
+                <CheckCircle className="feature-icon text-green-500" size={20} />
+                <span className="feature-text text-gray-800">{item}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Our Story Section */}
-        <div className="our-story-section">
-          <h2 className="story-title">Our Story</h2>
-          <div className="story-content">
-            <p className="story-text">
-              Indabentle Consulting was founded with a singular vision: to transform the way organizations approach human capital management. We believe that the success of any organization is intrinsically linked to the well-being and development of its people.
-            </p>
-            <p className="story-text">
-              Our team of experienced consultants brings together decades of expertise in HR management, organizational psychology, wellness coaching, and business strategy. We have worked with organizations across various industries, helping them build cultures of excellence, resilience, and continuous growth.
-            </p>
-            <p className="story-text">
-              At Indabentle, we don't just provide services – we build partnerships. We take the time to understand your unique challenges, organizational culture, and goals. This allows us to deliver tailored solutions that create lasting, meaningful change.
-            </p>
-          </div>
-        </div>
-
-        {/* Team Values Section */}
-        <div className="team-values-section">
-          <h2 className="values-section-title">What Drives Us</h2>
-          <div className="values-cards-grid">
-            <div className="value-detail-card">
-              <div className="value-detail-icon">🎯</div>
-              <h3 className="value-detail-title">Excellence</h3>
-              <p className="value-detail-text">
-                We are committed to delivering the highest quality of service in everything we do, continuously improving and innovating our approaches.
-              </p>
-            </div>
-            <div className="value-detail-card">
-              <div className="value-detail-icon">🤝</div>
-              <h3 className="value-detail-title">Partnership</h3>
-              <p className="value-detail-text">
-                We believe in building long-term relationships based on trust, collaboration, and mutual success with our clients.
-              </p>
-            </div>
-            <div className="value-detail-card">
-              <div className="value-detail-icon">💡</div>
-              <h3 className="value-detail-title">Innovation</h3>
-              <p className="value-detail-text">
-                We embrace new ideas and cutting-edge methodologies to provide solutions that are effective and forward-thinking.
-              </p>
-            </div>
-            <div className="value-detail-card">
-              <div className="value-detail-icon">❤️</div>
-              <h3 className="value-detail-title">Empathy</h3>
-              <p className="value-detail-text">
-                We approach every engagement with genuine care for people's well-being and a deep understanding of organizational challenges.
-              </p>
-            </div>
+        <div className="team-values-section mt-12">
+          <h2 className="values-section-title text-2xl font-bold mb-4">What Drives Us</h2>
+          <div className="values-cards-grid grid md:grid-cols-4 gap-6">
+            {[
+              {icon: '🎯', title: 'Excellence', text: 'High-quality training & continuous improvement.'},
+              {icon: '🤝', title: 'Collaboration', text: 'Strong relationships between local experts and community.'},
+              {icon: '💡', title: 'Innovation', text: 'Creative solutions and technology for efficiency.'},
+              {icon: '❤️', title: 'Empowerment', text: 'Enabling skills development and access to resources.'}
+            ].map((v, i) => (
+              <div key={i} className="value-detail-card p-4 bg-gradient-to-br from-yellow-50 to-orange-100 rounded-lg shadow">
+                <div className="value-detail-icon text-3xl mb-2">{v.icon}</div>
+                <h3 className="value-detail-title font-semibold">{v.title}</h3>
+                <p className="value-detail-text text-gray-700">{v.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -38,8 +38,13 @@
   gap: 1rem;
   cursor: pointer;
   transition: transform var(--transition-base);
+   max-width: 200px;
 }
-
+.logo-img {
+  max-height: 50px;       /* ← limit image height */
+  width: auto;
+  object-fit: contain;    /* maintain aspect ratio */
+}
 .logo-wrapper:hover {
   transform: scale(1.02);
 }

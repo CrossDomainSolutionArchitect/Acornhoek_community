@@ -29,7 +29,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
   };
 
   // Use Imgur logo URL
-  const logoUrl = 'https://i.imgur.com/I5SXjfk.png';
+  const logoUrl = 'https://i.imgur.com/ujeBXVr.png';
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
@@ -64,7 +64,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
               className="cta-button"
               aria-label="Get started"
             >
-              Get Started
+             Hire our talent
             </button>
           </div>
 
@@ -96,7 +96,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
               className="mobile-menu-item cta-mobile"
               role="menuitem"
             >
-              Get Started
+              Hire our talent
             </button>
           </div>
         )}

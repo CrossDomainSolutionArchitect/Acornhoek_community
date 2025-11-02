@@ -400,6 +400,180 @@ const ConstructionDivision = () => {
           </div>
         </div>
 
+        {/* Team Members */}
+        <div style={{ marginBottom: '4rem' }}>
+          <h2 style={{ fontSize: '2rem', fontWeight: '900', marginBottom: '2rem', textAlign: 'center' }}>
+            Meet Our Construction Team
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+            {[
+              {
+                name: 'Michael Nkuna',
+                role: 'Master Bricklayer',
+                experience: '18 years',
+                quote: 'A strong foundation built with precision creates structures that stand the test of time.',
+                commitment: 'Building community infrastructure'
+              },
+              {
+                name: 'Sarah Chauke',
+                role: 'Tiling & Finishing Specialist',
+                experience: '9 years',
+                quote: 'Excellence in finishing work transforms good construction into exceptional spaces.',
+                commitment: 'Training youth in skilled trades'
+              }
+            ].map((member, idx) => (
+              <div key={idx} style={{
+                background: 'white',
+                border: '2px solid #e5e7eb',
+                borderRadius: '1rem',
+                padding: '2rem',
+                textAlign: 'center',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                e.currentTarget.style.borderColor = '#b91c1c';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.borderColor = '#e5e7eb';
+              }}>
+                <div style={{
+                  width: '120px',
+                  height: '120px',
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #b91c1c, #991b1b)',
+                  margin: '0 auto 1.5rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '3rem',
+                  color: 'white',
+                  boxShadow: '0 4px 12px rgba(185, 28, 28, 0.3)'
+                }}>
+                  🧱
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: '#111827', marginBottom: '0.25rem' }}>
+                  {member.name}
+                </h3>
+                <p style={{ fontSize: '0.95rem', color: '#b91c1c', fontWeight: '600', marginBottom: '0.75rem' }}>
+                  {member.role}
+                </p>
+                <div style={{
+                  background: '#fee2e2',
+                  padding: '1rem',
+                  borderRadius: '0.5rem',
+                  marginBottom: '1rem',
+                  borderLeft: '4px solid #b91c1c'
+                }}>
+                  <p style={{ fontSize: '0.9rem', color: '#991b1b', fontStyle: 'italic', lineHeight: '1.6' }}>
+                    "{member.quote}"
+                  </p>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-around', fontSize: '0.85rem', color: '#6b7280' }}>
+                  <div>
+                    <div style={{ fontWeight: '700', color: '#111827' }}>{member.experience}</div>
+                    <div>Experience</div>
+                  </div>
+                </div>
+                <p style={{ fontSize: '0.85rem', color: '#b91c1c', fontWeight: '600', marginTop: '1rem' }}>
+                  💪 {member.commitment}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Physical Training Centers */}
+        <div style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '2rem', fontWeight: '900', marginBottom: '2rem', textAlign: 'center' }}>
+            Physical Training & Workshops
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            <div style={{
+              backgroundImage: 'url(https://www.ehlanzenicollege.co.za/wp-content/uploads/2021/04/Engineering-studies-N1-to-N6-1024x1024.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              border: '2px solid #86efac',
+              borderRadius: '1rem',
+              padding: '2rem',
+              textAlign: 'center',
+              position: 'relative'
+            }}>
+              
+              <button
+                onClick={() => window.open('https://www.ehlanzenicollege.co.za/', '_blank')}
+                style={{
+                  padding: '0.75rem 1.5rem',
+                  background: '#16a34a',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '9999px',
+                  fontSize: '0.95rem',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseOver={(e) => e.currentTarget.style.background = '#15803d'}
+                onMouseOut={(e) => e.currentTarget.style.background = '#16a34a'}
+              >
+                Apply for N1-N6 Program
+              </button>
+            </div>
+
+            <div style={{
+              background: 'linear-gradient(135deg, #fee2e2, #fecaca)',
+              border: '2px solid #fca5a5',
+              borderRadius: '1rem',
+              padding: '2rem',
+              textAlign: 'center'
+            }}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                background: '#b91c1c',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 1.5rem',
+                fontSize: '2rem'
+              }}>
+                🏗️
+              </div>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: '#991b1b', marginBottom: '1rem' }}>
+                1360 Hub Construction Site
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: '#b91c1c', marginBottom: '1rem', lineHeight: '1.6' }}>
+                <strong>Practical Building Skills</strong><br />
+                Bricklaying, tiling, plastering<br />
+                Community projects training<br />
+                Acornhoek, Mpumalanga
+              </p>
+              <button
+                onClick={() => window.location.href = '/contact'}
+                style={{
+                  padding: '0.75rem 1.5rem',
+                  background: '#b91c1c',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '9999px',
+                  fontSize: '0.95rem',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseOver={(e) => e.currentTarget.style.background = '#991b1b'}
+                onMouseOut={(e) => e.currentTarget.style.background = '#b91c1c'}
+              >
+                Join Training Program
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* CTA Section */}
         <div style={{
           background: 'linear-gradient(135deg, #1f2937, #111827)',
@@ -413,36 +587,62 @@ const ConstructionDivision = () => {
             Ready to Build Your Construction Career?
           </h2>
           <p style={{ fontSize: '1.2rem', marginBottom: '2rem', opacity: 0.9 }}>
-            Start your journey as a professional bricklayer and mason today
+            Learn online fundamentals → Get TVET certified → Practice on real projects
           </p>
-          <button
-            onClick={() => window.open('https://alison.com/course/bricklaying-and-masonry-techniques-for-beginners', '_blank')}
-            style={{
-              padding: '1.25rem 3rem',
-              background: 'linear-gradient(135deg, #b91c1c, #991b1b)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '9999px',
-              fontSize: '1.1rem',
-              fontWeight: '800',
-              cursor: 'pointer',
-              boxShadow: '0 4px 15px rgba(185, 28, 28, 0.4)',
-              transition: 'all 0.3s ease',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
-              e.currentTarget.style.boxShadow = '0 6px 25px rgba(185, 28, 28, 0.5)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = 'translateY(0) scale(1)';
-              e.currentTarget.style.boxShadow = '0 4px 15px rgba(185, 28, 28, 0.4)';
-            }}
-          >
-            Apply Now - Free Registration <ArrowRight size={20} />
-          </button>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button
+              onClick={() => window.open('https://alison.com/course/bricklaying-and-masonry-techniques-for-beginners', '_blank')}
+              style={{
+                padding: '1.25rem 3rem',
+                background: 'linear-gradient(135deg, #b91c1c, #991b1b)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '9999px',
+                fontSize: '1.1rem',
+                fontWeight: '800',
+                cursor: 'pointer',
+                boxShadow: '0 4px 15px rgba(185, 28, 28, 0.4)',
+                transition: 'all 0.3s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 6px 25px rgba(185, 28, 28, 0.5)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(185, 28, 28, 0.4)';
+              }}
+            >
+              Start Free Online Course <ArrowRight size={20} />
+            </button>
+            <button
+              onClick={() => window.location.href = '/contact'}
+              style={{
+                padding: '1.25rem 3rem',
+                background: 'white',
+                color: '#1f2937',
+                border: 'none',
+                borderRadius: '9999px',
+                fontSize: '1.1rem',
+                fontWeight: '800',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 6px 25px rgba(0,0,0,0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              Contact Us
+            </button>
+          </div>
         </div>
       </div>
     </section>

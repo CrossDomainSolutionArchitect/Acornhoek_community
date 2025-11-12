@@ -500,7 +500,7 @@ const AutomotiveMechanical = () => {
                 onMouseOver={(e) => e.currentTarget.style.background = '#1d4ed8'}
                 onMouseOut={(e) => e.currentTarget.style.background = '#2563eb'}
               >
-                Join Workshop Program
+                Request Service
               </button>
             </div>
           </div>

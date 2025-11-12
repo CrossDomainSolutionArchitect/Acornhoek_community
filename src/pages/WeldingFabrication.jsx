@@ -606,7 +606,7 @@ const WeldingFabrication = () => {
                 onMouseOver={(e) => e.currentTarget.style.background = '#334155'}
                 onMouseOut={(e) => e.currentTarget.style.background = '#475569'}
               >
-                Join Workshop Program
+                Request Service
               </button>
             </div>
           </div>

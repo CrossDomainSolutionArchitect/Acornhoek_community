@@ -38,13 +38,15 @@
   gap: 1rem;
   cursor: pointer;
   transition: transform var(--transition-base);
-   max-width: 200px;
+  max-width: 280px;
 }
+
 .logo-img {
-  max-height: 50px;       /* ← limit image height */
+  max-height: 80px;
   width: auto;
-  object-fit: contain;    /* maintain aspect ratio */
+  object-fit: contain;
 }
+
 .logo-wrapper:hover {
   transform: scale(1.02);
 }
@@ -86,7 +88,7 @@
 .desktop-nav {
   display: none;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 .nav-link {
@@ -96,6 +98,9 @@
   transition: all var(--transition-fast);
   padding: 0.5rem 0;
   position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .nav-link::after {
@@ -119,6 +124,28 @@
   width: 100%;
 }
 
+.social-icons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--gray-300);
+}
+
+.social-icon {
+  color: var(--emerald-600);
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: var(--emerald-700);
+  transform: translateY(-2px);
+}
+
 .cta-button {
   padding: 0.75rem 1.75rem;
   background: linear-gradient(135deg, var(--emerald-600), var(--emerald-700));
@@ -130,6 +157,9 @@
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
 }
 
 .cta-button::before {
@@ -157,6 +187,9 @@
   padding: 0.5rem;
   color: var(--gray-900);
   transition: transform var(--transition-fast);
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .mobile-menu-toggle:hover {
@@ -181,12 +214,41 @@
   font-weight: 600;
   color: var(--gray-700);
   transition: all var(--transition-fast);
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .mobile-menu-item:hover {
   background: var(--emerald-50);
   color: var(--emerald-700);
   transform: translateX(5px);
+}
+
+.mobile-menu-item.active {
+  background: var(--emerald-50);
+  color: var(--emerald-700);
+}
+
+.cta-mobile {
+  background: var(--emerald-600);
+  color: var(--white);
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.cta-mobile:hover {
+  background: var(--emerald-700);
+  transform: translateX(0) translateY(-2px);
+}
+
+.mobile-social-icons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(5, 150, 105, 0.2);
+  margin-top: 0.5rem;
 }
 
 /* ============================================
@@ -268,6 +330,8 @@
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-primary::after {
@@ -302,6 +366,7 @@
   font-weight: 700;
   font-size: 1.05rem;
   transition: all var(--transition-base);
+  cursor: pointer;
 }
 
 .btn-secondary:hover {
@@ -520,6 +585,8 @@
   font-size: 1.1rem;
   transition: all var(--transition-base);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
 }
 
 .btn-cta-white:hover {
@@ -1265,6 +1332,50 @@
 }
 
 /* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 
@@ -1298,8 +1409,8 @@
   }
 
   .contact-grid {
-    grid-template-columns: 1fr 1.2fr; /* ← FIXED: Use proper fr values */
-    gap: 4rem; /* Increased gap for better spacing */
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
     align-items: start;
   }
 
@@ -1318,10 +1429,15 @@
   }
 
   .contact-grid {
-    grid-template-columns: 1fr 1.5fr; /* ← Better proportions for larger screens */
+    grid-template-columns: 1fr 1.5fr;
     gap: 5rem;
   }
+  
+  .logo-img {
+    max-height: 90px;
+  }
 }
+
 @media (max-width: 767px) {
   .hero-section {
     padding: 8rem 1.5rem 4rem;
@@ -1358,6 +1474,14 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+  
+  .logo-img {
+    max-height: 60px;
+  }
+  
+  .social-icons {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1377,5 +1501,9 @@
   .contact-info-box,
   .business-hours-box {
     padding: 2rem;
+  }
+  
+  .logo-img {
+    max-height: 50px;
   }
 }

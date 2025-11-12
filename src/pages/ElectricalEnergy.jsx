@@ -565,7 +565,7 @@ const ElectricalEnergy = () => {
                 onMouseOver={(e) => e.currentTarget.style.background = '#dc2626'}
                 onMouseOut={(e) => e.currentTarget.style.background = '#ea580c'}
               >
-                Join Training Program
+                Request Service
               </button>
             </div>
           </div>

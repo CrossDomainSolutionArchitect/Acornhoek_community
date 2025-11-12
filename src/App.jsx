@@ -3,13 +3,13 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 import AboutPage from './pages/AboutPage';
-
 import ContactPage from './pages/ContactPage';
 import AutomotiveMechanic from './pages/AutomotiveMechanical';
 import CarpentryCreative from './pages/CarpentryCreative';
 import ConstructionDivision from './pages/ConstructionDivision';
 import ElectricalEnergy from './pages/ElectricalEnergy';
 import WeldingFabrication from './pages/WeldingFabrication';
+import DirectoryPage from './pages/DirectoryPage';
 import './App.css';
 
 const App = () => {
@@ -21,8 +21,8 @@ const App = () => {
 
       {/* Core Pages */}
       {currentPage === 'home' && <AboutPage setCurrentPage={setCurrentPage} />}
-      {currentPage === 'about' && <AboutPage />}
-      {currentPage === 'services' && <ServicesPage />}
+      {currentPage === 'about' && <AboutPage setCurrentPage={setCurrentPage} />}
+      {currentPage === 'directory' && <DirectoryPage setCurrentPage={setCurrentPage} />}
       {currentPage === 'contact' && <ContactPage />}
 
       {/* Newer Pages */}

@@ -564,7 +564,7 @@ const CarpentryCreative = () => {
                 onMouseOver={(e) => e.currentTarget.style.background = '#78350f'}
                 onMouseOut={(e) => e.currentTarget.style.background = '#92400e'}
               >
-                Join Workshop Program
+                Request Service
               </button>
             </div>
           </div>

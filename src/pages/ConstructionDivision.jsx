@@ -568,7 +568,7 @@ const ConstructionDivision = () => {
                 onMouseOver={(e) => e.currentTarget.style.background = '#991b1b'}
                 onMouseOut={(e) => e.currentTarget.style.background = '#b91c1c'}
               >
-                Join Training Program
+                Request Service
               </button>
             </div>
           </div>

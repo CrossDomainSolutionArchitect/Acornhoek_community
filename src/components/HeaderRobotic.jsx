@@ -11,15 +11,23 @@ const HeaderRobotic = ({ currentPage, setCurrentPage }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['About', 'Programs', 'Workshops', 'Competitions', 'Projects', 'Resources', 'Team'];
+  // Label updated, but we'll map this special label to the 'about' route on click
+  const navItems = ['Go to 1630 Hub', 'Programs', 'Workshops', 'Competitions', 'Projects', 'Resources', 'Team'];
 
   const handleNavClick = (item) => {
-    setCurrentPage(item.toLowerCase());
+    // Map the special label to the 'about' page so existing routing/anchors keep working
+    const key = item === 'Go to 1630 Hub' ? 'about' : item.toLowerCase();
+    setCurrentPage(key);
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const logoUrl = 'https://i.imgur.com/moP8IOp.png';
+
+  const isActive = (item) => {
+    const key = item === 'Go to 1630 Hub' ? 'about' : item.toLowerCase();
+    return currentPage === key;
+  };
 
   return (
     <>
@@ -260,7 +268,7 @@ const HeaderRobotic = ({ currentPage, setCurrentPage }) => {
               <button
                 key={item}
                 onClick={() => handleNavClick(item)}
-                className={`nav-link-robotic ${currentPage === item.toLowerCase() ? 'active' : ''}`}
+                className={`nav-link-robotic ${isActive(item) ? 'active' : ''}`}
               >
                 {item}
               </button>
@@ -295,7 +303,7 @@ const HeaderRobotic = ({ currentPage, setCurrentPage }) => {
             </div>
 
             <button
-              onClick={() => handleNavClick('contact')}
+              onClick={() => handleNavClick('Contact')}
               className="cta-button-robotic"
             >
               Hire our talent
@@ -319,14 +327,14 @@ const HeaderRobotic = ({ currentPage, setCurrentPage }) => {
               <button
                 key={item}
                 onClick={() => handleNavClick(item)}
-                className={`mobile-item-robotic ${currentPage === item.toLowerCase() ? 'active' : ''}`}
+                className={`mobile-item-robotic ${isActive(item) ? 'active' : ''}`}
               >
                 {item}
               </button>
             ))}
 
             <button
-              onClick={() => handleNavClick('contact')}
+              onClick={() => handleNavClick('Contact')}
               className="mobile-item-robotic mobile-cta-robotic"
             >
               Hire our talent

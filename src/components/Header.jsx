@@ -39,7 +39,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
           left: 0;
           right: 0;
           z-index: 1000;
-          background: linear-gradient(135deg, #F6B81A 0%, #FFD966 100%);
+          background: linear-gradient(135deg, var(--green-dark) 0%, var(--text-green) 100%);
           backdrop-filter: blur(12px);
           border-bottom: 3px solid rgba(194, 92, 13, 0.3);
           transition: all 0.3s ease;
@@ -58,7 +58,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
           gap: 2rem;
         }
 
-        /* LOGOS - EQUAL SIZE, NO BACKGROUNDS */
+        /* LOGOS */
         .logos-group {
           display: flex;
           align-items: center;
@@ -112,7 +112,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
         .nav-link {
           background: none;
           border: none;
-          color: var(--text-green);
+          color: white;
           font-size: 0.95rem;
           font-weight: 600;
           cursor: pointer;
@@ -122,12 +122,12 @@ const Header = ({ currentPage, setCurrentPage }) => {
           position: relative;
         }
         .nav-link:hover {
-          color: white;
-          background: rgba(25, 78, 56, 0.9);
+          color: var(--text-green);
+          background: rgba(255, 255, 255, 0.2);
           transform: translateY(-2px);
         }
         .nav-link.active {
-          color: white;
+          color: var(--yellow);
           font-weight: 700;
           background: var(--green-dark);
         }
@@ -147,6 +147,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
           padding: 8px;
           border-radius: 12px;
           display: flex;
+          text-decoration: none;
         }
         .social-icon:hover {
           color: white;
@@ -257,6 +258,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
               onClick={() => {
                 setCurrentPage('about');
                 setMobileMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               aria-label="1360 Local Economy Hub"
             >

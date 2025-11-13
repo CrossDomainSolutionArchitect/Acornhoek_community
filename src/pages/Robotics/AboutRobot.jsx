@@ -34,7 +34,7 @@ const AboutRobot = ({ setCurrentPage }) => {
     <>
       <style>{`
         .robotics-about-page {
-          padding-top: 120px;
+          padding-top: 160px;
           min-height: 100vh;
           background: linear-gradient(180deg, #f8fffe 0%, #ffffff 100%);
         }
@@ -417,24 +417,7 @@ const AboutRobot = ({ setCurrentPage }) => {
             </div>
           </section>
 
-          {/* NEWSLETTER SECTION */}
-          <section className="newsletter-section">
-            <h3 className="newsletter-title">Stay Connected</h3>
-            <p className="newsletter-subtitle">
-              Subscribe for updates, funding opportunities, and skills development news.
-            </p>
-            <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="newsletter-input"
-                required
-              />
-              <button type="submit" className="newsletter-button">
-                Subscribe
-              </button>
-            </form>
-          </section>
+          
         </div>
       </div>
     </>

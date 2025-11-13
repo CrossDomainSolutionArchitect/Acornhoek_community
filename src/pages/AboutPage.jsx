@@ -14,7 +14,7 @@ const AboutPage = ({ setCurrentPage }) => {
     <>
       <style>{`
         .about-page {
-          padding-top: 120px;
+          padding-top: 160px;
           min-height: 100vh;
         }
 

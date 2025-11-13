@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Facebook, MessageCircle, Mail } from 'lucide-react';
-import HeaderRobotic from './HeaderRobotic';
 
-const Header = ({ currentPage, setCurrentPage }) => {
+const HeaderRobotic = ({ currentPage, setCurrentPage }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -12,7 +11,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['About', 'Automotive', 'Carpentry', 'Construction', 'Electrical', 'Welding'];
+  const navItems = ['About', 'Programs', 'Workshops', 'Competitions', 'Projects', 'Resources', 'Team'];
 
   const handleNavClick = (item) => {
     setCurrentPage(item.toLowerCase());
@@ -20,8 +19,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const logoUrl = 'https://i.imgur.com/I5SXjfk_d.png?maxwidth=520&shape=thumb&fidelity=high';
-  const logoUrlR = 'https://i.imgur.com/moP8IOp.png';
+  const logoUrl = 'https://i.imgur.com/moP8IOp.png';
 
   return (
     <>
@@ -33,22 +31,22 @@ const Header = ({ currentPage, setCurrentPage }) => {
           --text-green: #0E4734;
         }
 
-        .header {
+        .header-robotic {
           position: fixed;
           top: 0;
           left: 0;
           right: 0;
           z-index: 1000;
-          background: linear-gradient(135deg, #F6B81A 0%, #FFD966 100%);
+          background: linear-gradient(135deg, var(--green-dark) 0%, var(--text-green) 100%);
           backdrop-filter: blur(12px);
-          border-bottom: 3px solid rgba(194, 92, 13, 0.3);
+          border-bottom: 3px solid rgba(246, 184, 26, 0.3);
           transition: all 0.3s ease;
         }
-        .header.scrolled {
-          box-shadow: 0 10px 40px rgba(246, 184, 26, 0.4);
+        .header-robotic.scrolled {
+          box-shadow: 0 10px 40px rgba(14, 71, 52, 0.4);
         }
 
-        .nav-container {
+        .nav-container-robotic {
           max-width: 1320px;
           margin: 0 auto;
           padding: 1rem 1.5rem;
@@ -58,28 +56,21 @@ const Header = ({ currentPage, setCurrentPage }) => {
           gap: 2rem;
         }
 
-        /* LOGOS - EQUAL SIZE, NO BACKGROUNDS */
-        .logos-group {
+        /* LOGO */
+        .logo-link-robotic {
           display: flex;
           align-items: center;
-          gap: 1.5rem;
-        }
-
-        .logo-link {
-          display: block;
+          gap: 0.75rem;
           cursor: pointer;
           transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
           padding: 4px;
         }
-        .logo-link:hover {
+        .logo-link-robotic:hover {
           transform: translateY(-4px) scale(1.05);
-          filter: drop-shadow(0 10px 25px rgba(14, 71, 52, 0.2));
-        }
-        .logo-link:active {
-          transform: translateY(-2px) scale(1.02);
+          filter: drop-shadow(0 10px 25px rgba(246, 184, 26, 0.3));
         }
 
-        .logo-img {
+        .logo-img-robotic {
           height: 70px;
           width: auto;
           display: block;
@@ -87,16 +78,13 @@ const Header = ({ currentPage, setCurrentPage }) => {
         }
 
         @media (max-width: 767px) {
-          .logo-img {
+          .logo-img-robotic {
             height: 60px;
-          }
-          .logos-group {
-            gap: 1rem;
           }
         }
 
         /* NAVIGATION */
-        .desktop-nav {
+        .desktop-nav-robotic {
           display: none;
           align-items: center;
           gap: 0.5rem;
@@ -104,15 +92,15 @@ const Header = ({ currentPage, setCurrentPage }) => {
           justify-content: flex-end;
         }
         @media (min-width: 768px) {
-          .desktop-nav {
+          .desktop-nav-robotic {
             display: flex;
           }
         }
 
-        .nav-link {
+        .nav-link-robotic {
           background: none;
           border: none;
-          color: var(--text-green);
+          color: white;
           font-size: 0.95rem;
           font-weight: 600;
           cursor: pointer;
@@ -121,76 +109,76 @@ const Header = ({ currentPage, setCurrentPage }) => {
           transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
           position: relative;
         }
-        .nav-link:hover {
-          color: white;
-          background: rgba(25, 78, 56, 0.9);
+        .nav-link-robotic:hover {
+          color: var(--yellow);
+          background: rgba(246, 184, 26, 0.15);
           transform: translateY(-2px);
         }
-        .nav-link.active {
-          color: white;
+        .nav-link-robotic.active {
+          color: var(--green-dark);
           font-weight: 700;
-          background: var(--green-dark);
+          background: var(--yellow);
         }
 
         /* SOCIAL ICONS */
-        .social-icons {
+        .social-icons-robotic {
           display: flex;
           gap: 0.5rem;
           align-items: center;
           padding-left: 1rem;
           margin-left: 1rem;
-          border-left: 2px solid rgba(25, 78, 56, 0.3);
+          border-left: 2px solid rgba(246, 184, 26, 0.3);
         }
-        .social-icon {
-          color: var(--green-dark);
+        .social-icon-robotic {
+          color: var(--yellow);
           transition: all 0.3s ease;
           padding: 8px;
           border-radius: 12px;
           display: flex;
         }
-        .social-icon:hover {
-          color: white;
-          background: var(--green-dark);
+        .social-icon-robotic:hover {
+          color: var(--green-dark);
+          background: var(--yellow);
           transform: translateY(-3px) rotate(5deg);
         }
 
         /* CTA BUTTON */
-        .cta-button {
+        .cta-button-robotic {
           padding: 0.75rem 1.8rem;
-          background: var(--green-dark);
-          color: var(--yellow);
-          border: 2px solid var(--green-dark);
+          background: var(--yellow);
+          color: var(--green-dark);
+          border: 2px solid var(--yellow);
           border-radius: 9999px;
           font-weight: 700;
           font-size: 0.95rem;
           cursor: pointer;
           margin-left: 1rem;
-          box-shadow: 0 10px 30px rgba(25, 78, 56, 0.3);
+          box-shadow: 0 10px 30px rgba(246, 184, 26, 0.3);
           transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        .cta-button:hover {
+        .cta-button-robotic:hover {
           transform: translateY(-3px) scale(1.05);
-          box-shadow: 0 20px 50px rgba(25, 78, 56, 0.5);
-          background: var(--text-green);
-          color: white;
+          box-shadow: 0 20px 50px rgba(246, 184, 26, 0.5);
+          background: white;
+          color: var(--green-dark);
         }
 
         /* MOBILE */
-        .mobile-toggle {
+        .mobile-toggle-robotic {
           display: flex;
           background: none;
           border: none;
-          color: var(--text-green);
+          color: white;
           cursor: pointer;
           padding: 0.5rem;
         }
         @media (min-width: 768px) {
-          .mobile-toggle {
+          .mobile-toggle-robotic {
             display: none;
           }
         }
 
-        .mobile-menu {
+        .mobile-menu-robotic {
           display: flex;
           flex-direction: column;
           padding: 1rem 0;
@@ -198,47 +186,47 @@ const Header = ({ currentPage, setCurrentPage }) => {
           margin-top: 1rem;
         }
         @media (min-width: 768px) {
-          .mobile-menu {
+          .mobile-menu-robotic {
             display: none;
           }
         }
 
-        .mobile-item {
+        .mobile-item-robotic {
           background: none;
           border: none;
           padding: 0.85rem 1rem;
           text-align: left;
-          color: var(--text-green);
+          color: white;
           font-size: 1rem;
           font-weight: 500;
           cursor: pointer;
           transition: all 0.3s ease;
           border-radius: 8px;
         }
-        .mobile-item:hover {
-          background: linear-gradient(135deg, rgba(246, 184, 26, 0.1), rgba(62, 123, 68, 0.1));
-          color: var(--green-light);
+        .mobile-item-robotic:hover {
+          background: rgba(246, 184, 26, 0.15);
+          color: var(--yellow);
         }
-        .mobile-item.active {
-          color: var(--green-light);
-          background: linear-gradient(135deg, rgba(246, 184, 26, 0.15), rgba(62, 123, 68, 0.15));
+        .mobile-item-robotic.active {
+          color: var(--green-dark);
+          background: var(--yellow);
           font-weight: 600;
         }
 
-        .mobile-cta {
+        .mobile-cta-robotic {
           margin-top: 0.5rem;
-          background: var(--green-dark);
-          color: white;
+          background: var(--yellow);
+          color: var(--green-dark);
           text-align: center;
           border-radius: 8px;
           font-weight: 700;
           padding: 0.75rem;
         }
-        .mobile-cta:hover {
-          background: var(--text-green);
+        .mobile-cta-robotic:hover {
+          background: white;
         }
 
-        .mobile-socials {
+        .mobile-socials-robotic {
           display: flex;
           gap: 1.5rem;
           justify-content: center;
@@ -248,60 +236,42 @@ const Header = ({ currentPage, setCurrentPage }) => {
         }
       `}</style>
 
-      <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-        <nav className="nav-container">
-          {/* LOGOS */}
-          <div className="logos-group">
-            <button
-              className="logo-link"
-              onClick={() => {
-                setCurrentPage('about');
-                setMobileMenuOpen(false);
-              }}
-              aria-label="1360 Local Economy Hub"
-            >
-              <img
-                src={logoUrl}
-                alt="1360 Local Economy Hub"
-                className="logo-img"
-              />
-            </button>
-
-            <button
-              className="logo-link"
-              onClick={() => {
-                setCurrentPage('robotics');
-                setMobileMenuOpen(false);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              aria-label="1360 Robotics Hub"
-            >
-              <img
-                src={logoUrlR}
-                alt="1360 Robotics Hub"
-                className="logo-img"
-              />
-            </button>
-          </div>
+      <header className={`header-robotic ${scrolled ? 'scrolled' : ''}`}>
+        <nav className="nav-container-robotic">
+          {/* LOGO */}
+          <button
+            className="logo-link-robotic"
+            onClick={() => {
+              setCurrentPage('robotics');
+              setMobileMenuOpen(false);
+            }}
+            aria-label="1360 Robotics Hub"
+          >
+            <img
+              src={logoUrl}
+              alt="1360 Robotics Hub"
+              className="logo-img-robotic"
+            />
+          </button>
 
           {/* DESKTOP NAV */}
-          <div className="desktop-nav">
+          <div className="desktop-nav-robotic">
             {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => handleNavClick(item)}
-                className={`nav-link ${currentPage === item.toLowerCase() ? 'active' : ''}`}
+                className={`nav-link-robotic ${currentPage === item.toLowerCase() ? 'active' : ''}`}
               >
                 {item}
               </button>
             ))}
 
-            <div className="social-icons">
+            <div className="social-icons-robotic">
               <a
                 href="https://www.facebook.com/share/1N4nQXAEqw/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-icon"
+                className="social-icon-robotic"
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
@@ -310,14 +280,14 @@ const Header = ({ currentPage, setCurrentPage }) => {
                 href="https://chat.whatsapp.com/G41jvtdG9qt4vK90bdGn8o?mode=wwt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-icon"
+                className="social-icon-robotic"
                 aria-label="WhatsApp"
               >
                 <MessageCircle size={20} />
               </a>
               <a
-                href="mailto:info@vcdsa.co.za"
-                className="social-icon"
+                href="mailto:info@1360hub.co.za"
+                className="social-icon-robotic"
                 aria-label="Email"
               >
                 <Mail size={20} />
@@ -326,7 +296,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
 
             <button
               onClick={() => handleNavClick('contact')}
-              className="cta-button"
+              className="cta-button-robotic"
             >
               Hire our talent
             </button>
@@ -335,7 +305,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
           {/* MOBILE TOGGLE */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="mobile-toggle"
+            className="mobile-toggle-robotic"
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -344,12 +314,12 @@ const Header = ({ currentPage, setCurrentPage }) => {
 
         {/* MOBILE MENU */}
         {mobileMenuOpen && (
-          <div className="mobile-menu">
+          <div className="mobile-menu-robotic">
             {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => handleNavClick(item)}
-                className={`mobile-item ${currentPage === item.toLowerCase() ? 'active' : ''}`}
+                className={`mobile-item-robotic ${currentPage === item.toLowerCase() ? 'active' : ''}`}
               >
                 {item}
               </button>
@@ -357,17 +327,17 @@ const Header = ({ currentPage, setCurrentPage }) => {
 
             <button
               onClick={() => handleNavClick('contact')}
-              className="mobile-item mobile-cta"
+              className="mobile-item-robotic mobile-cta-robotic"
             >
               Hire our talent
             </button>
 
-            <div className="mobile-socials">
+            <div className="mobile-socials-robotic">
               <a
                 href="https://www.facebook.com/share/1N4nQXAEqw/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-icon"
+                className="social-icon-robotic"
               >
                 <Facebook size={24} />
               </a>
@@ -375,23 +345,19 @@ const Header = ({ currentPage, setCurrentPage }) => {
                 href="https://chat.whatsapp.com/G41jvtdG9qt4vK90bdGn8o?mode=wwt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-icon"
+                className="social-icon-robotic"
               >
                 <MessageCircle size={24} />
               </a>
-              <a href="mailto:info@vcdsa.co.za" className="social-icon">
+              <a href="mailto:info@1360hub.co.za" className="social-icon-robotic">
                 <Mail size={24} />
               </a>
             </div>
           </div>
         )}
       </header>
-
-      {currentPage === 'robotics' && (
-        <HeaderRobotic currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      )}
     </>
   );
 };
 
-export default Header;
+export default HeaderRobotic;

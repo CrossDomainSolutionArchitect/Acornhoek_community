@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Facebook, MessageCircle, Mail } from 'lucide-react';
-import HeaderRobotic from './HeaderRobotic';
 
 const Header = ({ currentPage, setCurrentPage }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,10 +11,11 @@ const Header = ({ currentPage, setCurrentPage }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['About', 'Automotive', 'Carpentry', 'Construction', 'Electrical', 'Welding'];
+  const navItems = ['About', 'Carpentry', 'Hire our talents'];
 
   const handleNavClick = (item) => {
-    setCurrentPage(item.toLowerCase());
+    const pageName = item.toLowerCase().replace(/\s+/g, '-');
+    setCurrentPage(pageName);
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -155,27 +155,6 @@ const Header = ({ currentPage, setCurrentPage }) => {
           transform: translateY(-3px) rotate(5deg);
         }
 
-        /* CTA BUTTON */
-        .cta-button {
-          padding: 0.75rem 1.8rem;
-          background: var(--green-dark);
-          color: var(--yellow);
-          border: 2px solid var(--green-dark);
-          border-radius: 9999px;
-          font-weight: 700;
-          font-size: 0.95rem;
-          cursor: pointer;
-          margin-left: 1rem;
-          box-shadow: 0 10px 30px rgba(25, 78, 56, 0.3);
-          transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .cta-button:hover {
-          transform: translateY(-3px) scale(1.05);
-          box-shadow: 0 20px 50px rgba(25, 78, 56, 0.5);
-          background: var(--text-green);
-          color: white;
-        }
-
         /* MOBILE */
         .mobile-toggle {
           display: flex;
@@ -226,19 +205,6 @@ const Header = ({ currentPage, setCurrentPage }) => {
           font-weight: 600;
         }
 
-        .mobile-cta {
-          margin-top: 0.5rem;
-          background: var(--green-dark);
-          color: white;
-          text-align: center;
-          border-radius: 8px;
-          font-weight: 700;
-          padding: 0.75rem;
-        }
-        .mobile-cta:hover {
-          background: var(--text-green);
-        }
-
         .mobile-socials {
           display: flex;
           gap: 1.5rem;
@@ -278,11 +244,11 @@ const Header = ({ currentPage, setCurrentPage }) => {
               }}
               aria-label="1360 Robotics Hub"
             >
-              <img
+              {/* <img
                 src={logoUrlR}
                 alt="1360 Robotics Hub"
                 className="logo-img"
-              />
+              /> */}
             </button>
           </div>
 
@@ -292,7 +258,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
               <button
                 key={item}
                 onClick={() => handleNavClick(item)}
-                className={`nav-link ${currentPage === item.toLowerCase() ? 'active' : ''}`}
+                className={`nav-link ${currentPage === item.toLowerCase().replace(/\s+/g, '-') ? 'active' : ''}`}
               >
                 {item}
               </button>
@@ -325,13 +291,6 @@ const Header = ({ currentPage, setCurrentPage }) => {
                 <Mail size={20} />
               </a>
             </div>
-
-            <button
-              onClick={() => handleNavClick('contact')}
-              className="cta-button"
-            >
-              Hire our talent
-            </button>
           </div>
 
           {/* MOBILE TOGGLE */}
@@ -351,18 +310,11 @@ const Header = ({ currentPage, setCurrentPage }) => {
               <button
                 key={item}
                 onClick={() => handleNavClick(item)}
-                className={`mobile-item ${currentPage === item.toLowerCase() ? 'active' : ''}`}
+                className={`mobile-item ${currentPage === item.toLowerCase().replace(/\s+/g, '-') ? 'active' : ''}`}
               >
                 {item}
               </button>
             ))}
-
-            <button
-              onClick={() => handleNavClick('contact')}
-              className="mobile-item mobile-cta"
-            >
-              Hire our talent
-            </button>
 
             <div className="mobile-socials">
               <a
@@ -388,10 +340,6 @@ const Header = ({ currentPage, setCurrentPage }) => {
           </div>
         )}
       </header>
-
-      {currentPage === 'robotics' && (
-        <HeaderRobotic currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      )}
     </>
   );
 };
